@@ -15,7 +15,7 @@
 loaded_classes=$(($APPLICATION_SIZE_ON_DISK_IN_MB * 400))
 stack_threads=$((15 + $APPLICATION_SIZE_ON_DISK_IN_MB * 6 / 10))
 
-docker_opts="-XX:+UnlockExperimentalVMOptions -XX:+UseCGroupMemoryLimitForHeap"
+docker_opts="-XX:+UnlockExperimentalVMOptions -XX:+UseCGroupMemoryLimitForHeap -XX:MaxRAMFraction=1"
 
 calc_opts=$(java-buildpack-memory-calculator \
   -loadedClasses $loaded_classes \
